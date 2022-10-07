@@ -20,4 +20,8 @@ class Tweet extends Model
     public function likes() {
         return $this->hasMany(Like::class);
     }
+
+    public function getIsRetweetAttribute() {
+        return $this->tweet_id !== null;
+    }
 }

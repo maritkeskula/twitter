@@ -24,4 +24,5 @@ Route::get('/user/{username}', [HomeController::class, 'index']);
 Route::get('/tweet/{tweet}', [TweetController::class, 'show']);
 Route::post('/tweet/{tweet}', [ReplyController::class, 'store']);
 Route::get('/tweet/{tweet}/like', [LikeController::class, 'like']);
+Route::get('/tweet/{tweet}/retweet', [TweetController::class, 'retweet']);
 Auth::routes();

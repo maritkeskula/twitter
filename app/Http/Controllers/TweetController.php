@@ -56,6 +56,14 @@ class TweetController extends Controller
         //
     }
 
+    public function retweet(Tweet $tweet) {
+        $retweet = new Tweet();
+        $retweet->tweet_id = $tweet->id;
+        $retweet->user()->associate(Auth::user());
+        $retweet->save();
+        return redirect()->back();
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

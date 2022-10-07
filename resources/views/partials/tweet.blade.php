@@ -1,4 +1,7 @@
 <div class="card mb-2">
+    @if($tweet->isRetweet)
+        {{$tweet->user->name}} retweeted</b>
+    @endif
     <div class="card-content">
         <a href="/user/{{$tweet->user->username}}">
             <div class="media">
@@ -26,6 +29,6 @@
             <a href="/tweet/{{$tweet->id}}" class="card-footer-item">Reply {{$tweet->replies()->count()}}</a>
         @endunless
         <a href="/tweet/{{$tweet->id}}/like" class="card-footer-item">Like {{$tweet->likes()->count()}}</a>
-        <a href="" class="card-footer-item">Retweet</a>
+        <a href="/tweet/{{$tweet->id}}/retweet" class="card-footer-item">Retweet</a>
     </footer>
 </div>

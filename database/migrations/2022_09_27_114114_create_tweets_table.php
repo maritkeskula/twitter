@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('content');
             $table->foreignIdFor(\App\Models\User::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(\App\Models\Tweet::class)->nullable()->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
