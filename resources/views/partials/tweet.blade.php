@@ -1,9 +1,4 @@
 <div class="card mb-2">
-{{--    <div class="card-image">--}}
-{{--        <figure class="image is-4by3">--}}
-{{--            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">--}}
-{{--        </figure>--}}
-{{--    </div>--}}
     <div class="card-content">
         <a href="/user/{{$tweet->user->username}}">
             <div class="media">
@@ -24,5 +19,13 @@
             <br>
             <time datetime="2016-1-1">{{$tweet->created_at->diffForHumans()}}</time>
         </div>
-    </div>
+
+</div>
+    <footer class="card-footer">
+        @unless(isset($reply) && $reply === false)
+            <a href="/tweet/{{$tweet->id}}" class="card-footer-item">Reply {{$tweet->replies()->count()}}</a>
+        @endunless
+        <a href="/tweet/{{$tweet->id}}/like" class="card-footer-item">Like {{$tweet->likes()->count()}}</a>
+        <a href="" class="card-footer-item">Retweet</a>
+    </footer>
 </div>

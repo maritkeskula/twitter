@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\ReplyController;
 use App\Http\Controllers\TweetController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PublicController::class, 'home']);
 Route::post('/tweets', [TweetController::class, 'store']);
 Route::get('/user/{username}', [HomeController::class, 'index']);
+Route::get('/tweet/{tweet}', [TweetController::class, 'show']);
+Route::post('/tweet/{tweet}', [ReplyController::class, 'store']);
+Route::get('/tweet/{tweet}/like', [LikeController::class, 'like']);
 Auth::routes();
